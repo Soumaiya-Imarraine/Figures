@@ -1,0 +1,20 @@
+WTs = [];
+for j = 1:25:size(WT,1)-24
+    WTs = [WTs; sum(WT(j:j+24,:))];
+end
+
+center = mean(WTs(570:660, find(pWT(1,:))), 2);
+
+semWT = [];
+semWT = [std(WTs(570:660,:),0,2)/sqrt(size(WTs(570:660,:),2))];
+
+
+data = WTs(570:660,:)';
+figure
+plot_areaerrorbar(data);
+options.error = 'sem';
+hold on 
+xline(30,'-k');
+yline(mean(center(1:29)), ':k')
+yline(mean(center(33:90)), ':r')
+hold off
