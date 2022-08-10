@@ -1,0 +1,15 @@
+%% Before-After linked scatter plot
+
+F = [sum(WT(15000:15050,:)); sum(WT(28613:28663,:))];
+I = [sum(WT(15051:15150,:)); sum(WT(28664:28763,:))];
+R = [sum(WT(15151:16475,:)); sum(WT(28764:30088,:))];
+
+xF = [ones(1,20); ones(1,20)*2];
+xI = [ones(1,20)*3; ones(1,20)*4];
+xR = [ones(1,20)*5; ones(1,20)*6];
+
+plot(xF, F, 'k-o')
+hold on
+plot(xI, I, 'b-o')
+plot(xR, R, 'r-o')
+xlim([0 7])
